@@ -10,7 +10,7 @@ var Book = require("../models/book.js");
 // =============================================================
 module.exports = function(app) {
   // Get all books
-  app.get("/api/all", function(req, res) {
+  app.get("/api/checkin", function(req, res) {
     Book.findAll({}).then(function(results) {
       res.json(results);
     });
