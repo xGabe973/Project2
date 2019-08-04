@@ -1,106 +1,46 @@
 // *********************************************************************************
 // api-routes.js - this file offers a set of routes for displaying and saving data to the db
 // *********************************************************************************
-
 // Dependencies
 // =============================================================
-var Book = require("../models/book.js");
-
+var Guest = require("../../models/guest.js");
+var sequelize = require("../../config/connection.js");
+var Sequelize = require("sequelize");
 // Routes
 // =============================================================
 module.exports = function(app) {
-  // Get all books
-  app.get("/api/checkin", function(req, res) {
-    Book.findAll({}).then(function(results) {
+  app.get("/api/guest", function(req, res) {
+    Guest.findAll({}).then(function(results) {
       res.json(results);
     });
   });
+  //Get all Shelters
+  app.get("/api/shelters", function(req, res) {
+    var dbQuery = "SELECT * FROM shelters";
 
-  // Get a specific book
-  app.get("/api/:book", function(req, res) {
-    Book.findAll({
-      where: {
-        title: req.params.book
-      }
-    }).then(function(results) {
-      res.json(results);
-    });
+    sequelize
+      .query(dbQuery, { type: Sequelize.QueryTypes.Select })
+      .then(function(result) {
+        console.log("Show results");
+        console.log(result);
+        res.json(result[0]);
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
   });
-
-  // Get all books of a specific genre
-  app.get("/api/genre/:genre", function(req, res) {
-    Book.findAll({
-      where: {
-        genre: req.params.genre
-      }
-    }).then(function(results) {
-      res.json(results);
-    });
-  });
-
-  // Get all books from a specific author
-  app.get("/api/author/:author", function(req, res) {
-    Book.findAll({
-      where: {
-        author: req.params.author
-      }
-    }).then(function(results) {
-      res.json(results);
-    });
-  });
-
-  // Get all "long" books (books 150 pages or more)
-  app.get("/api/books/long", function(req, res) {
-    Book.findAll({
-      where: {
-        pages: {
-          $gte: 150
-        }
-      },
-      order: [["pages", "DESC"]]
-    }).then(function(results) {
-      res.json(results);
-    });
-  });
-
-  // Get all "short" books (books 150 pages or less)
-  app.get("/api/books/short", function(req, res) {
-    Book.findAll({
-      where: {
-        pages: {
-          $lte: 150
-        }
-      },
-      order: [["pages", "ASC"]]
-    }).then(function(results) {
-      res.json(results);
-    });
-  });
-
-  // Add a book
-  app.post("/api/new", function(req, res) {
-    console.log("Book Data:");
+  app.post("/api/guest", function(req, result) {
+    console.log("Guest Data:");
     console.log(req.body);
-    Book.create({
-      title: req.body.title,
-      author: req.body.author,
-      genre: req.body.genre,
-      pages: req.body.pages
-    }).then(function(results) {
-      res.json(results);
-    });
-  });
-
-  // Delete a book
-  app.delete("/api/book/:id", function(req, res) {
-    console.log("Book ID:");
-    console.log(req.params.id);
-    Book.destroy({
-      where: {
-        id: req.params.id
-      }
-    }).then(function() {
-      res.end();
+    Guest.create({
+      name: req.body.name,
+      age: req.body.age,
+      sex: req.body.sex,
+      shelter: req.body.shelter,
+      date: req.body.date
+    }).then(function(result) {
+      // `results` here would be the newly created guest
+      res.json(result);
     });
   });
 };

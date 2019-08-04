@@ -1,26 +1,49 @@
+// The code in add.js handles what happens when the user clicks the "Add a book" button.
 
-// Make a get request to our api route that will return every book
-// $.get("/api/all", function(data) {
-//   // For each book that our server sends us back
-//   for (var i = 0; i < data.length; i++) {
-//     // Create a parent div to hold book data
-//     var wellSection = $("<div>");
-//     // Add a class to this div: 'well'
-//     wellSection.addClass("well");
-//     // Add an id to the well to mark which well it is
-//     wellSection.attr("id", "book-well-" + i);
-//     // Append the well to the well section
-//     $("#well-section").append(wellSection);
+// When user clicks add-btn
+$("#add-btn").on("click", function(event) {
+  event.preventDefault();
 
-//     // Now  we add our book data to the well we just placed on the page
-//     $("#book-well-" + i).append("<h2>" + (i + 1) + ". " + data[i].title + "</h2>");
-//     $("#book-well-" + i).append("<h3>Author: " + data[i].author + "</h4>");
-//     $("#book-well-" + i).append("<h3>Genre: " + data[i].genre + "</h4>");
-//     $("#book-well-" + i).append("<h3>Pages: " + data[i].pages + "</h4>");
-//     $("#book-well-" + i).append("<h3>Pages: " + data[i].pages + "</h4>");
-//     <a href="/" class="btn btn-secondary btn-lg">
-//     <span class="fa fa-eye"></span> Check In</a>
-//   }
-// });
+  // Make a newGuest object
+  var newGuest = {
+    name: $("#name")
+      .val()
+      .trim(),
+    age: $("#age")
+      .val()
+      .trim(),
+    sex: $("#sex")
+      .val()
+      .trim(),
+    shelter: $("#shelter")
+      .val()
+      .trim(),
+    date: $("#date")
+      .val()
+      .trim()
+  };
+  console.log(newGuest);
+  // Send an AJAX POST-request with jQuery
+  $.post("/api/guest", newGuest)
+    // On success, run the following code
+    .then(function() {
+      var div = $("<div>");
+      div.addClass("guest");
+      div.append("<p>" + newGuest.name + "</p>");
+      div.append("<p>" + newGuest.age + "</p>");
+      div.append("<p>" + newGuest.sex + "</p>");
+      div.append("<p>" + newGuest.shelter + "</p>");
+      div.append("<p>" + newGuest.date + "</p>");
 
+      $("/api/guest").prepend(div);
+      // Log the data we found
+      console.log(data);
+    });
 
+  // Empty each input box by replacing the value with an empty string
+  $("#name").val("");
+  $("#age").val("");
+  $("#sex").val("");
+  $("#shelter").val("");
+  $("#date").val("");
+});

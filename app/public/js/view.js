@@ -1,33 +1,24 @@
-// The code in add.js handles what happens when the user clicks the "Add a book" button.
-
-// When user clicks add-btn
-$("#add-btn").on("click", function(event) {
-  event.preventDefault();
-
-  // Make a newBook object
-  var newBook = {
-    title: $("#title").val().trim(),
-    author: $("#author").val().trim(),
-    genre: $("#genre").val().trim(),
-    pages: $("#pages").val().trim()
+// Make an AJAX get request to our api
+$.get("/api/shelters", function (data) {
+  console.log(data);
+  // Call our renderShelters function to add our books to the page
+  fetchShelters(data);
+ });
+ 
+ function fetchShelters(data) {
+  if (data.length !== 0) {
+    for (var i = 0; i < data.length; i++) {
+      var div = $("<div>");
+      div.append("<h2>" + data[i].name + "</h2>");
+      div.append("<p>Address: " + data[i].address + "</p>");
+      div.append("<p>Gender: " + data[i].gender + "</p>");
+      div.append("<p>Capacity: " + data[i].capacity + "</p>");
+      div.append("<p>Phone Number: " + data[i].phone_number + "</p>");
+      div.append()
+      $("#shelters").append(div);
+    };
   };
-
-  // Send an AJAX POST-request with jQuery
-  $.post("/api/new", newBook)
-    // On success, run the following code
-    .then(function(data) {
-      // Log the data we found
-      console.log(data);
-    });
-
-  // Empty each input box by replacing the value with an empty string
-  $("#title").val("");
-  $("#author").val("");
-  $("#genre").val("");
-  $("#pages").val("");
-
-});
-
+};
 var data = [{
   name: "WYCA Central Carolinas",
   capacity: 40,
@@ -55,12 +46,7 @@ var data = [{
   opensAt: '17:00',
   female: true,
   male: true,
-}
-]
-
-
-
-
+}];
 
 $('#female').on('click', function () {
 var filteredArray = data.filter(each => each.female === true)
@@ -91,8 +77,4 @@ for (let i = 0; i < array.length; i++) {
   var newShelter = $(`<div>${array[i].name}</div>`)
   $("#shelters").append(newShelter)
 }
-}
-
-$("#shelters").append(`<h2>Showing all shelters</h2>`)
-displayShelters(data)
-
+};

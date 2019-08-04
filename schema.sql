@@ -20,3 +20,13 @@ VALUES ("The Salvation Army Center of Hope Shelter", "534 Spratt St, Charlotte, 
 ("Charlotte Family Housing","2410 The Plaza, Charlotte, NC 28205", "Family", "0", "704-335-5488"),
 ("Charlotte Men's Shelter","3410 Statesville Ave, Charlotte, NC 28206","Men", "0", "704-334-3187");
 SELECT * FROM shelters;
+
+CREATE TABLE guest (
+id INT AUTO_INCREMENT NOT NULL,
+name VARCHAR(255) NOT NULL,
+age INTEGER(3) NOT NULL,
+sex VARCHAR(7) NOT NULL,
+shelter VARCHAR(255) NOT NULL,
+date INTEGER(8) NOT NULL,
+FOREIGN KEY (id)
+)
