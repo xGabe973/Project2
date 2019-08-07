@@ -60,12 +60,17 @@ var data = [
   Shelter_name: 'Charlotte Mens Shelter',
   address: '3410 Statesville Ave, Charlotte, NC 28206',
   gender: 'Men',
-  capacity: 49,
+  capacity: 33,
   phone_number: 7043343187
 }
       
 ];
-shelterGuestDb.Shelter.bulkCreate(data, {individualHooks: true}).then(function(response){
+shelterGuestDb.Shelter.bulkCreate(data,{
+  fields:["Shelter_name", "address","gender","capacity","phone_number"] ,
+  updateOnDuplicate: ["Shelter_name"] 
+} ,{
+  individualHooks: true
+}).then(function(response){
   res.json(response)
 }).catch(function(error){
   res.json(error);
@@ -80,12 +85,15 @@ shelterGuestDb.Shelter.bulkCreate(data, {individualHooks: true}).then(function(r
     shelterGuestDb.Guest.findAll({}).then(function (results) {
       console.log(JSON.stringify(results))
       res.json(results);
+
+     
     });
   });
   //get guest end closure here
   app.get("/api/shelters", function (req, res) {
     shelterGuestDb.Shelter.findAll({}).then(function (results) {
       res.json(results);
+         
     });
 
   });
