@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Displaying Text Directions With setPanel()</title>
+    <link rel="stylesheet" href="./css/googlemap.css">
+  </head>
+  <body>
+    <div id="floating-panel">
+        <strong>Mode of Travel</strong>
+        <select id="mode">
+            <option value="" disabled selected>Select mode of travel</option>
+            <option value="DRIVING">Driving</option>
+            <option value="WALKING">Walking</option>
+            <option value="BICYCLING">Bicycling</option>
+            <option value="TRANSIT">Transit</option>
+        </select>
+        <br>
+      
+        <form><strong>Start:</strong>
+          <input type="text" name="locationInput" id="locationInput" placeholder="Enter Address">
+      
+      <br>
+      <strong>Shelter:</strong>
+      <select id="end">
+        <option value="" disabled selected>Select a shelter</option>
+        <option value="2410 The Plaza, Charlotte, NC">Charlotte Family Housing</option>
+        <option value="3410 Statesville Ave, Charlotte, NC">Charlotte Men's Shelter</option>
+        <option value="107 Cromer St Charlotte, NC">Hoskins Park Ministries</option>
+        <option value="1210 N Tryon St, Charlotte, NC">Men's Shelter of Charlotte</option>
+        <option value="3239 Beatties Ford Road Charlotte, NC">My Sister's House</option>
+        <option value="1100 East Blvd. Charlotte, NC">The Relatives, Inc.</option>
+        <option value="534 Spratt St, Charlotte, NC">The Salvation Army Center of Hope Shelter</option>
+        <option value="945 North College Street Charlotte, NC">Urban Ministry Center</option>
+      </select>
+      
+      
+    </div>
+    <div id="right-panel"></div>
+    <div id="map"></div>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBik1zT0gGFcFkGmCkBoukzdL2c9UiT0Qo&callback=initMap">
+    </script>
+<script src="./js/googlemap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  </body>
+</html>
+   
