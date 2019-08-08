@@ -1,0 +1,31 @@
+{
+  "name": "Project2",
+  "version": "1.0.0",
+  "description": "Project 2",
+  "main": "server.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^1.6.5",
+    "sequelize": "^5.12.3",
+    "umzug": "^2.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xGabe973/Project2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xGabe973/Project2/issues"
+  },
+  "homepage": "https://github.com/xGabe973/Project2#readme"
+}
