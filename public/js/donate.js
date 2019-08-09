@@ -95,8 +95,7 @@ $("#submit-btn").on("click", function(event) {
 
   });
 $("#name").val("");
-$(".mySelect option:selected").val("");
-$(".mySelect option:selected") .html("");
+
 $("#userName").val("");
 $("#passWord").val("");
 $("#cardNumber").val("");

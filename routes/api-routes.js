@@ -18,12 +18,6 @@ var data = [
   Shelter_name: 'Mens Shelter of Charlotte',
   address: '1210 N Tryon St, Charlotte, NC 28206',
   gender: 'Men',
-  capacity: 50,
-  phone_number: 7043343187
-},{
-  Shelter_name: 'Mens Shelter of Charlotte',
-  address: '1210 N Tryon St, Charlotte, NC 28206',
-  gender: 'Men',
   capacity: 30,
   phone_number: 7043343187
 },{
@@ -257,7 +251,12 @@ app.post("/api/donatePost",function(req,res){
   });
 });
 ///post into the donation page end closure
-
+app.get("/api/donatePost", function(req, res) {
+  shelterGuestDb.donation.findAll({}).then(function (result) {
+    res.json(result);
+  });
+ });
+ // api donation get all end closure here
 };
 //module export end closure here
 
