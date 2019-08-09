@@ -18,12 +18,6 @@ var data = [
   Shelter_name: 'Mens Shelter of Charlotte',
   address: '1210 N Tryon St, Charlotte, NC 28206',
   gender: 'Men',
-  capacity: 50,
-  phone_number: 7043343187
-},{
-  Shelter_name: 'Mens Shelter of Charlotte',
-  address: '1210 N Tryon St, Charlotte, NC 28206',
-  gender: 'Men',
   capacity: 30,
   phone_number: 7043343187
 },{
@@ -177,6 +171,92 @@ shelterGuestDb.Shelter.bulkCreate(data,{
       })
   });
   //google chart api end closure here
+
+  app.get("/api/bank", function (req, res) {
+    shelterGuestDb.Bank.findAll({}).then(function (results) {
+      res.json(results);
+  });
+
+  });
+
+///get all bank details
+
+app.get("/post/bankBulk",function(req,res){
+  //insert data
+  var data = [
+    {
+      bank_UserName: 'vijayalakshmi',
+      bank_Password: 'viji',
+      bank_code: 12345,
+      amount_Availablity: 300
+      
+    },{
+      bank_UserName: 'gabriel',
+      bank_Password: 'gabriel',
+      bank_code: 602265,
+      amount_Availablity: 999999999
+  },{
+    bank_UserName: 'markia',
+      bank_Password: 'markia',
+      bank_code: 13131,
+      amount_Availablity: 300
+  },{
+    bank_UserName: 'steve',
+      bank_Password: 'steve',
+      bank_code: 14141,
+      amount_Availablity: 1000
+  },{
+    bank_UserName: 'robert',
+      bank_Password: 'robert',
+      bank_code: 15151,
+      amount_Availablity: 876
+  }];
+  shelterGuestDb.Bank.bulkCreate(data,{
+    fields:["bank_UserName", "bank_Password","bank_code","amount_Availablity"] ,
+    updateOnDuplicate: ["bank_UserName"] 
+  } ,{
+    individualHooks: true
+  }).then(function(response){
+    res.json(response)
+  }).catch(function(error){
+    res.json(error);
+  });
+});
+//bulk bank details create
+
+app.put("/api/updatebank/:id",function(req,res){
+    
+  shelterGuestDb.Bank.update({
+    amount_Availablity : req.body.amount_Availablity
+  },{
+    where:{
+      id : req.params.id
+    }
+  }).then(function(result){
+    res.json(result)
+    console.log(result);
+  })
+ });
+ ///update bank amount end closure here
+
+app.post("/api/donatePost",function(req,res){
+  shelterGuestDb.donation.create({
+    shelter_Id : req.body.shelter_Id,
+    shelter_Name : req.body.shelter_Name,
+    donation_Done : req.body.donation_Done
+  }).then(function(response){
+    res.json({
+      id: response.insertId
+    });
+  });
+});
+///post into the donation page end closure
+app.get("/api/donatePost", function(req, res) {
+  shelterGuestDb.donation.findAll({}).then(function (result) {
+    res.json(result);
+  });
+ });
+ // api donation get all end closure here
 };
 //module export end closure here
 
