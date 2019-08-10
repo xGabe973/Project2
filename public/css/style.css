@@ -212,7 +212,8 @@ hr {
 a,
 a.greenlink:hover,
 a.greenlink:visited {
-    color: #029177 !important;
+
+    color: #269e68 !important;
 }
 
 /* .form-control:focus {
