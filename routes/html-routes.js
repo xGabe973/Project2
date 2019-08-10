@@ -25,4 +25,8 @@ module.exports = function(app) {
   app.get("/donationDetails", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/donationDetails.html"));
   });
+    //map file path
+  app.get("/map", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/googlemap.html"));
+  });
 };

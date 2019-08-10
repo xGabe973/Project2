@@ -15,11 +15,11 @@ $.get("/post/dataBulk",function(data){
       for (var i = 0; i < data.length; i++) {
         var div = $("<div>");
         div.append("<h2>" + data[i].Shelter_name + "</h2>");
-        div.append("<p>Address: " + data[i].address + "</p>");
-        div.append("<p>Gender: " + data[i].gender + "</p>");
-        div.append("<p>Capacity: " + data[i].capacity + "</p>");
-        div.append("<p>Phone Number: " + data[i].phone_number + "</p>");
-        div.append()
+        div.append("Address: " + data[i].address + "<br>");
+        div.append("Gender: " + data[i].gender + "<br>");
+        div.append("Capacity: " + data[i].capacity + "<br>");
+        div.append("Phone Number: " + data[i].phone_number + "<br>");
+        div.append("<hr></hr>")
         $("#shelters").append(div);
       };
     };
