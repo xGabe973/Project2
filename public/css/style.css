@@ -1,44 +1,54 @@
 body {
     font-family: 'Roboto', sans-serif;
-    font-weight: 400;
-    line-height: 1.5em;
-    color: #575757;
+    font-weight: 300;
 }
 
 h1 {
-    font-weight: 700 !important;
+    font-weight: 900 !important;
     color: white;
 }
 
 h2 {
-    font-size: 1.7em;
-    line-height: 1.2em;
-    color: #029177;
-    font-weight: 700;
+    font-size: 1.4em;
 }
 
 h3 {
-    font-weight: 100 !important;
+    font-weight: 300 !important;
     font-size: 1.2em;
 }
 
 h4 {
-    font-size: 1.3em;
+    font-size: 1.4em;
     font-weight: 300;
 }
 
-hr {
-    padding: 10px;
-    margin-top: 36px;
+.card-header {
+    font-weight: 500;
+}
+
+
+#firstp {
+    padding-top: 0px !important;
+}
+
+.btn {
+    font-weight: 300 !important;
+    margin: 6px !important;
+    color: white !important;
+}
+
+.btn-lg {
+    width: 240px;
+    color: white;
 }
 
 .jumbotron {
-    background-color: #029177 !important;
+    background-color: #269e68 !important;
     color: #ffffff;
-    min-height: 80px;
-    max-height: 180px;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    min-height: 100px;
+    max-height: 200px;
+    padding-top: 42px;
+    padding-bottom: 42px;
 }
 
 .display-4 {
@@ -52,115 +62,11 @@ hr {
     line-height: 120%;
 }
 
-/* .btn {
-    background-color: #1b3c67 !important;
-    width: 200px;
-    height: 50px;
-    color: #ffffff;
-    font-family: 'Muli', sans-serif;
-    font-weight: 300;
-    box-shadow: none !important;
-    outline: 0 none;
-} */
-
-.btn:hover,
-.btn:focus,
-.btn:active:focus,
-.btn.active:focus {
-    background-color: #1b3c67 !important;
-    outline: 0 none;
-    border: 0 none;
-    color: #ffffff;
-
-}
-
-.btn {
-    background-color: #1b3c67 !important;
-    color: #ffffff;
-    box-shadow: none !important;
-    border-color: #1b3c67;
-    border: 0 none;
-    outline: 0 none;
-    margin: 5px !important;
-    font-weight: 300 !important;
-}
-
-/* .btn {
-    background-color: #1b3c67 !important;
-    font-weight: 300 !important;
-    margin: 6px !important;
-    color: white !important;
-} */
-
-.btn-lg {
-    background-color: #1b3c67 !important;
-    background-color: #1b3c67 !important;
-    font-weight: 300 !important;
-    margin: 6px !important;
-    color: white !important;
-    width: 210px;
-    color: white;
-}
-
-.card-header {
-    background-color: #ecebeb !important;
-    color: #575757;
-    font-weight: 500;
-}
-
-.card-body {
-    padding: 30px;
-}
-.form-control {
-    border-color: #dadada;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    font-weight: 400;
-
-}
-
 .form-control:focus {
     border-color: #b1b1b1;
     box-shadow: none;
     -webkit-box-shadow: none;
-    font-weight: 400;
-
 }
-
-.form-control:focus {
-    border-color: #b1b1b1;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    background-color: #ffffff;
-    font-weight: 400;
-
-}
-
-.form-control:hover {
-    border-color: #c2c1c1;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    background-color: #ffffff;
-    font-weight: 400;
-
-}
-
-.form-control:active {
-    border-color: #b1b1b1;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    background-color: #ffffff;
-    font-weight: 400;
-
-}
-
-/* .form-control:active {
-    border-color: #b1b1b1;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    color: #b9b9b9;
-    background-color: #b9b9b9;
-}  */
 
 #container {
     max-width: 1000px;
@@ -182,18 +88,7 @@ hr {
 @media screen and (min-width: 800px) {
     #piechart {
         width: 300px;
-        height: 800px;
-        margin: auto;
-    }
-}
-
-@media (min-width: 1000px) {
-    #piechart {
-        /* display: grid; */
-        /* grid-template-columns: 1fr;
-        grid-gap: 20px; */
-        width: 620px;
-        height: 860px;
+        height: 350px;
         margin: auto;
     }
 }
@@ -204,7 +99,7 @@ hr {
         /* grid-template-columns: 1fr;
         grid-gap: 20px; */
         width: 820px;
-        height: 780px;
+        height: 500px;
         margin: auto;
     }
 }
@@ -212,10 +107,5 @@ hr {
 a,
 a.greenlink:hover,
 a.greenlink:visited {
-    color: #029177 !important;
+    color: #269e68 !important;
 }
-
-/* .form-control:focus {
-    border-color: #28a745;
-    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
-}  */

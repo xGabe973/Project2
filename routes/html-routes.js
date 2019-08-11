@@ -21,8 +21,8 @@ module.exports = function(app) {
   app.get("/checkin", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/checkin.html"));
   });
-  //map file path
-  app.get("/map", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/googlemap.html"));
+  //donation details file path
+  app.get("/donationDetails", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/donationDetails.html"));
   });
 };

@@ -191,13 +191,13 @@ app.get("/post/bankBulk",function(req,res){
       amount_Availablity: 300
       
     },{
-      bank_UserName: 'gabriel',
-      bank_Password: 'gabriel',
-      bank_code: 602265,
-      amount_Availablity: 999999999
+      bank_UserName: 'gaberial',
+      bank_Password: 'gaberial',
+      bank_code: 12121,
+      amount_Availablity: 500
   },{
-    bank_UserName: 'markia',
-      bank_Password: 'markia',
+    bank_UserName: 'marikia',
+      bank_Password: 'marikia',
       bank_code: 13131,
       amount_Availablity: 300
   },{
